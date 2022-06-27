@@ -1,14 +1,17 @@
 import { ChangeEvent, FormEvent, useState } from 'react';
 
 interface Validation {
+    // To mark an input as required and throws a validation error if it’s is.
     required?: {
         value: boolean;
         message: string;
     };
+    // Allows to specify the expression that the input must match to be considered valid.
     pattern?: {
         value: string;
         message: string;
     };
+    // A function that can accept a value as a parameter and then will return a boolean. If it returns true, the field is valid
     custom?: {
         isValid: (value: string) => boolean;
         message: string;
