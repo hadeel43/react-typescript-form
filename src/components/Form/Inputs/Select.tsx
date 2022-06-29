@@ -8,21 +8,22 @@ interface SelectProps {
   }[];
 }
 
-const Select = ({ options, ...props }: SelectProps) => {
-  return (
-    <Input
-      render={
-        <select className="bg-gray-50  shadow border rounded w-full py-2 px-3 text-gray-700" {...props}>
-          {options.map(({ value, label }) => (
-            <option value={value} key={value}>
-              {label}
-            </option>
-          ))}
-        </select>
-      }
-      {...props}
-    />
-  );
-};
+const Select = ({ options, ...props }: SelectProps) => (
+  <Input
+    render={
+      <select
+        className="py-2 px-3 w-full text-gray-700 bg-gray-50 rounded border shadow"
+        {...props}
+      >
+        {options.map(({ value, label }) => (
+          <option value={value} key={value}>
+            {label}
+          </option>
+        ))}
+      </select>
+    }
+    {...props}
+  />
+);
 
 export default Select;
